@@ -4,12 +4,15 @@ public class Tester {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] initialBoard = {1,2,3,4,5,6,7,8,0};
+		int[] goalBoard = {1,2,3,4,5,6,7,8,0};
+		Board[] net;
+		BeamSearch bs;
 		
+		Generator G = new Generator(11, goalBoard);
 		
-		Generator G = new Generator(10, initialBoard);
+		net = G.Generate();
 		
-		G.Generate();
+
 		
 		System.out.println("Done");		
 	}

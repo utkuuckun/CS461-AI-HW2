@@ -1,6 +1,6 @@
 package hw2;
 
-public class Board {
+public class Board implements Comparable{
 	//properties
 		private int[] board;
 		private int state_id;
@@ -37,6 +37,14 @@ public class Board {
 			case 8: results[0] = 7; results[1] = 5; results[2] = -1; results[3] = -1; maxNumOfNeigb = 2;break;
 			}
 			return results;
+		}
+		
+		public int compareTo(Object arg0) {
+			if(this.dist > ((Board)arg0).getDist())
+				return 1;
+			if(this.dist == ((Board)arg0).getDist())
+				return 0;
+			return -1;
 		}
 		
 		public void calcDist(Board goalBoard)

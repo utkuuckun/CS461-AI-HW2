@@ -11,13 +11,13 @@ public class Generator {
 	public Generator(int noOfStates, int[] startBoard)
 	{
 		stateCount = 0;
-		this.noOfStates = noOfStates;
-		states = new Board[noOfStates];
+		this.noOfStates = noOfStates + 10;	//+ 10 is to make intial states more complex. Choose last 10 'noOfStates' boards from the end of the states array and use them as initial states.
+		states = new Board[this.noOfStates];
 		states[0] = new Board(startBoard, stateCount++);
 		
 	}
 	
-	public void Generate()
+	public Board[] Generate()
 	{
 		for(int i = 0; i < stateCount ; i++)
 		{
@@ -49,6 +49,7 @@ public class Generator {
 				}
 			}
 		}
+		return states;
 	}
 	
 }
