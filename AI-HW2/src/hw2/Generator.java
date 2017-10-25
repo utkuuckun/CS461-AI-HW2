@@ -19,7 +19,7 @@ public class Generator {
 	
 	public void Generate()
 	{
-		for(int i = 0; i < stateCount && stateCount < noOfStates; i++)
+		for(int i = 0; i < stateCount ; i++)
 		{
 			
 			int[] values = states[i].applyFunction();
@@ -44,6 +44,7 @@ public class Generator {
 				{
 					states[i].setNeigbour(stateCount);
 					states[stateCount] = new Board(newBoard, stateCount);
+					states[stateCount].calcDist(states[0]); //Manhattan distance to the initial state
 					stateCount++;
 				}
 			}
