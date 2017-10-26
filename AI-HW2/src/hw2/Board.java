@@ -1,3 +1,10 @@
+/*
+ *  CS 461 - HW 2 
+ *  Group Name: Minigma
+ *  Group Members:  Irem Yuksel, Utku Uckun, Petek Ellialtioglu, Berk Izgi Danis
+ * 
+ */
+
 package hw2;
 
 public class Board implements Comparable{
@@ -58,6 +65,9 @@ public class Board implements Comparable{
 			dist = diff/2;
 		}
 		
+		public int[] getNeighbours() {
+			return neigbours;
+		}
 		public int[] exchange( int input)
 		{
 			int[] newBoard = new int[9];
@@ -92,6 +102,19 @@ public class Board implements Comparable{
 			return neigbourCount;
 		}
 		
+		public String toString() {
+			String s = "";
+			for(int i = 0; i < 9; i = i + 3){
+				for(int k = i; k < i + 3; k++){
+					s += board[k] + "|";
+			
+				}
+				if(i!= 6)
+					s += "\n------\n";
+			}
+
+			return s;
+		}
 		
 		public void setNeigbour(int stateId)
 		{
